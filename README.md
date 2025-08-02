@@ -54,5 +54,3 @@ This project serves as a practical exercise to test your DevOps skills. It invol
      - prometheus
      - node_exporter
      - grafana
-___
-___
