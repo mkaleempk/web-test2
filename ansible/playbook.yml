@@ -1,0 +1,30 @@
+- name: Setup Web Test Environment
+  hosts: local
+  become: yes
+
+  tasks:
+
+    - name: Install Git
+      apt:
+        name: git
+        state: present
+        update_cache: yes
+
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Start Docker
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Verify Docker
+      command: docker --version
+      register: docker_output
+
+    - debug:
+        var: docker_output.stdout
+
